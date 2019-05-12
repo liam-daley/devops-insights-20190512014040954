@@ -30,7 +30,7 @@
 
   describe('Get Weather', function() {
 
-    it('with without city name', function() {
+    it('without city name', function() {
       reqMock = {
         query: {
 
@@ -64,7 +64,7 @@
     it('with incomplete city name', function() {
       reqMock = {
         query: {
-          zip: 'Hami'
+          q: 'Hami'
         }
       };
 
@@ -83,7 +83,7 @@
     it('with valid city name', function() {
       reqMock = {
         query: {
-          zip: 'Hamilton'
+          q: 'Hamilton'
         }
       };
 
