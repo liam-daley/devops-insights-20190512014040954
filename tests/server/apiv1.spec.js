@@ -83,7 +83,7 @@
     it('with valid city name', function() {
       reqMock = {
         query: {
-          q: 'Hamilton'
+          q: "'Hamilton'"
         }
       };
 
