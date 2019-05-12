@@ -83,13 +83,13 @@
     it('with valid city name', function() {
       reqMock = {
         query: {
-          q: "'Hamilton'"
+          q: 'Hamilton'
         }
       };
 
       var body = {
         cod: 200,
-        name: "'Hamilton'",
+        name: 'Hamilton',
         weather: [
           {
             main: 'cold'
