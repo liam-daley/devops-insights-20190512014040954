@@ -45,7 +45,7 @@
     it('with valid city name and error from request call', function() {
       reqMock = {
         query: {
-          q: 'Hamilton'
+          q: "'Hamilton'"
         }
       };
 
@@ -64,7 +64,7 @@
     it('with incomplete city name', function() {
       reqMock = {
         query: {
-          q: 'Hami'
+          q: "'Hami'"
         }
       };
 
@@ -89,7 +89,7 @@
 
       var body = {
         cod: 200,
-        name: 'Hamilton',
+        name: "'Hamilton'",
         weather: [
           {
             main: 'cold'
