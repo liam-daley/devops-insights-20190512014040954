@@ -48,8 +48,8 @@
       });
     });
 
-    it("Check for zip4 element", function(done) {
-      driver.isElementPresent(webdriver.By.id('zip4')).then(function(present) {
+    it("Check for city4 element", function(done) {
+      driver.isElementPresent(webdriver.By.id('city4')).then(function(present) {
         assert.equal(present, true);
         done();
       });
@@ -62,17 +62,17 @@
       });
     });
 
-    it("Enter zip code and check output - 1", function(done) {
-      driver.findElement(webdriver.By.id('zip1')).sendKeys('Hamilton');
-      driver.findElement(webdriver.By.id('zip1city')).getText().then(function(text) {
+    it("Enter city and check output - 1", function(done) {
+      driver.findElement(webdriver.By.id('city1')).sendKeys('Hamilton');
+      driver.findElement(webdriver.By.id('city1city')).getText().then(function(text) {
         assert.equal(text, ' Hamilton');
         done();
       });
     });
 
-    it("Enter zip code and check output - 2", function(done) {
-      driver.findElement(webdriver.By.id('zip4')).sendKeys('Auckland');
-      driver.findElement(webdriver.By.id('zip4city')).getText().then(function(text) {
+    it("Enter city and check output - 2", function(done) {
+      driver.findElement(webdriver.By.id('city4')).sendKeys('Auckland');
+      driver.findElement(webdriver.By.id('city4city')).getText().then(function(text) {
         assert.equal(text, ' Auckland');
         done();
       });
