@@ -15,7 +15,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     $scope.somemessage = "Some weather";
     $scope.city1City = "";
     $scope.city1Weather = "";
-    
+    var _index = 4;
     var cities = [null, null, null, null];
     
     function addMarker(lat, lng, index) {
@@ -28,6 +28,46 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	});
     	
     }
+    
+    //(req.query.lat === null) || (typeof(req.query.lat) === 'undefined') || (req.query.lon === null) || (typeof(req.query.lon) === 'undefined')
+
+	function getWeatherFromMarker(lat, long) {
+		if((lat === null) || (typeof(lat) === 'undefined') || (lon === null) || (typeof(lon) === 'undefined')) {
+            $http({
+                method: "GET",
+                url: '/api/v1/getWeatherWithCityName?lat=' + lat + '&lng=' + long
+            }).then( function(response) {
+                if(_index === 1) {
+                    $scope.city1City = response.data.city;
+                    $scope.city1Weather = response.data.weather;
+                } else if(_index === 2) {
+                    $scope.city2City = response.data.city;
+                    $scope.city2Weather = response.data.weather;
+                } else if(_index === 3) {
+                    $scope.city3City = response.data.city;
+                    $scope.city3Weather = response.data.weather;
+                } else if(_index === 4) {
+                    $scope.city4City = response.data.city;
+                    $scope.city4Weather = response.data.weather;
+                }
+            });
+            
+        } else {
+            if(_index === 1) {
+                    $scope.city1City = "";
+                    $scope.city1Weather = "";
+                } else if(_index === 2) {
+                    $scope.city2City = "";
+                    $scope.city2Weather = "";
+                } else if(_index === 3) {
+                    $scope.city3City = "";
+                    $scope.city3Weather = "";
+                } else if(_index === 4) {
+                    $scope.city4City = "";
+                    $scope.city4Weather = "";
+                } 
+        }
+	}
 
     $scope.city = function(which) {
 
@@ -84,6 +124,11 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	$scope.map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 40.9006, lng: 174.8860},
           zoom: 8
+        });
+        
+        $scope.map.addListener('click', function(e){
+        	addMarker(e.latLng.lat(), e.latLng.lng(), _index);
+        	getWeatherFromMarker(e.latLng.lat(), e.latLng.lng());
         });
     }
     
