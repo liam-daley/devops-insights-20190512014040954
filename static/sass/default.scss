@@ -239,3 +239,11 @@ td {
 #map {
 	height: 100%;
 }
+
+.flex-parent {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+}
