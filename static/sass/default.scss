@@ -237,13 +237,8 @@ td {
 }
 
 #map {
-	height: 100%;
-}
-
-.flex-parent {
-    display: flex;
-}
-
-.flex-child {
-    flex: 1;
+	float: left;
+	height: 600px;
+	width: 600px;
+	margin: 1%;
 }

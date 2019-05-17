@@ -15,6 +15,19 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     $scope.somemessage = "Some weather";
     $scope.city1City = "";
     $scope.city1Weather = "";
+    
+    var cities = [null, null, null, null];
+    
+    function addMarker(lat, lng, index) {
+    	var latLng = new google.maps.LatLng(lat, lng);
+    	$scope.map.panTo(latLng);
+    	cities[index] = new google.maps.Marker({
+    		position: latLng,
+    		map: $scope.map,
+    		title: index
+    	});
+    	
+    }
 
     $scope.city = function(which) {
 
@@ -47,6 +60,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.city4City = response.data.city;
                     $scope.city4Weather = response.data.weather;
                 } 
+                addMarker(response.data.lat, response.data.lon, which);
             });
             
         } else {

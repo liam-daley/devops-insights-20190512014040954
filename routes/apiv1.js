@@ -12,10 +12,15 @@ var OPENWEATHERURL = "http://api.openweathermap.org/data/2.5/weather?appid=6b7b4
 exports.getWeatherWithCityName = function(req, res) {
 	var city = req.query.q;
 	if( (city === null) || (typeof(city) === 'undefined') ) {
-		return res.status(400).send('city missing');
+		if ((req.query.lat === null) || (typeof(req.query.lat) === 'undefined') || (req.query.lon === null) || (typeof(req.query.lon) === 'undefined')) {
+			return res.status(400).send('city missing');
+		}
+		var aurl = OPENWEATHERURL + '&lat=' + req.query.lat + '&lon=' + req.query.lon;
+	} else {
+		aurl = OPENWEATHERURL + '&q=' + city + ',nz';
 	}
 
-	var aurl = OPENWEATHERURL + '&q=' + city + ',nz';
+	
 
 	request({
 		method: 'GET',
