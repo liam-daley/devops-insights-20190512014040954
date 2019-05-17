@@ -13,36 +13,36 @@
 
     var appUrl = process.env.APP_URL;
 
-    describe('Get Weather', function() {
+    describe('Get Weather With City Name', function() {
 
-    	it('with valid zip code', function(done) {
+    	it('with valid city name', function(done) {
         if(!appUrl) {
             assert.fail("Environment variable APP_URL is not defined");
             return done();
         }
         request({
       		method: 'GET',
-              url: appUrl + '/api/v1/getWeather?q=Hamilton'
+              url: appUrl + '/api/v1/getWeatherWithCityName?q=\'Hamilton\''
           }, function(err, resp, body) {
           	if(err) {
           		assert.fail('Failed to get the response');
           	} else {
               assert.equal(resp.statusCode, 200);
               var pbody = JSON.parse(body);
-              assert((pbody.city === 'Hamilton') || (pbody.city === 'Round Rock'), "City name does not match");
+              assert((pbody.city === 'Hamilton') || (pbody.city === 'Hamilton'), "City name does not match");
               done();
             }
         });
     	});
 
-      it('without zip code', function(done) {
+      it('without city name', function(done) {
         if(!appUrl) {
             assert.fail("Environment variable APP_URL is not defined");
             return done();
         }
         request({
       		method: 'GET',
-              url: appUrl + '/api/v1/getWeather'
+              url: appUrl + '/api/v1/getWeatherWithCityName'
           }, /* @callback */ function(err, resp, body) {
           	if(err) {
           		assert.fail('Failed to get the response');
@@ -53,14 +53,14 @@
         });
     	});
 
-      it('with another valid zip code', function(done) {
+      it('with another valid city name', function(done) {
         if(!appUrl) {
             assert.fail("Environment variable APP_URL is not defined");
             return done();
         }
         request({
       		method: 'GET',
-              url: appUrl + '/api/v1/getWeather?q=Auckland'
+              url: appUrl + '/api/v1/getWeatherWithCityName?q=\'Auckland\''
           }, function(err, resp, body) {
           	if(err) {
           		assert.fail('Failed to get the response');
