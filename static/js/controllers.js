@@ -24,7 +24,6 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	cities[index] = new google.maps.Marker({
     		position: latLng,
     		map: $scope.map,
-    		title: index
     	});
     	
     }
