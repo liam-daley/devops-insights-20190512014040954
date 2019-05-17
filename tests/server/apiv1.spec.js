@@ -37,7 +37,7 @@
         }
       };
 
-      apiv1.getWeather(reqMock, resMock);
+      apiv1.getWeatherWithCityName(reqMock, resMock);
 
       assert(resMock.status.lastCall.calledWith(400), 'Unexpected status code:' + resMock.status.lastCall.args);
     });
@@ -55,7 +55,7 @@
 
       apiv1.__set__("request", request);
 
-      apiv1.getWeather(reqMock, resMock);
+      apiv1.getWeatherWithCityName(reqMock, resMock);
 
       assert(resMock.status.lastCall.calledWith(400), 'Unexpected response:' + resMock.status.lastCall.args);
       assert(resMock.send.lastCall.calledWith('Failed to get the data'), 'Unexpected response:' + resMock.send.lastCall.args);
@@ -74,7 +74,7 @@
 
       apiv1.__set__("request", request);
 
-      apiv1.getWeather(reqMock, resMock);
+      apiv1.getWeatherWithCityName(reqMock, resMock);
 
       assert(resMock.status.lastCall.calledWith(400), 'Unexpected response:' + resMock.status.lastCall.args);
       assert(resMock.send.lastCall.args[0].msg === 'Failed', 'Unexpected response:' + resMock.send.lastCall.args);
@@ -106,7 +106,7 @@
 
       apiv1.__set__("request", request);
 
-      apiv1.getWeather(reqMock, resMock);
+      apiv1.getWeatherWithCityName(reqMock, resMock);
 
       assert(resMock.status.lastCall.calledWith(200), 'Unexpected response:' + resMock.status.lastCall.args);
       assert(resMock.send.lastCall.args[0].city === 'Hamilton', 'Unexpected response:' + resMock.send.lastCall.args[0].city);
