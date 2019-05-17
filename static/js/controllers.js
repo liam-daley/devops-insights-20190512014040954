@@ -67,4 +67,11 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
         }
     };
     
+    function initMap(){
+    	$scope.map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 40.9006, lng: 174.8860},
+          zoom: 8
+        });
+    }
+    
 }]);
