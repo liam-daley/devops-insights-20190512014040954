@@ -28,7 +28,6 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	
     }
     
-    //(req.query.lat === null) || (typeof(req.query.lat) === 'undefined') || (req.query.lon === null) || (typeof(req.query.lon) === 'undefined')
 
 	function getWeatherFromMarker(lat, long) {
 		if((lat === null) || (typeof(lat) === 'undefined') || (lon === null) || (typeof(lon) === 'undefined')) {
