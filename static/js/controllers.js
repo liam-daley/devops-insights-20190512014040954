@@ -74,4 +74,6 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
         });
     }
     
+    initMap();
+    
 }]);
