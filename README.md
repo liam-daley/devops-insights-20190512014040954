@@ -1,4 +1,3 @@
-# DemoDRA
-https://devops-insights-20190512014040954.mybluemix.net/#/
+# IBM Cloud devops tutorial
 
-https://staging-devops-insights-20190512014040954.mybluemix.net/#/
+Repository used for learning purposes.
